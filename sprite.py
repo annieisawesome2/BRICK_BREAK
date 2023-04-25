@@ -28,7 +28,7 @@ class MySprite:
         
         self.__POS = (self.__X, self.__Y)
     
-    def moveWASD(self, KEYS_PRESSED):
+    def moveAD(self, KEYS_PRESSED):
         """move sprite with WASD
 
         Args:
@@ -39,13 +39,7 @@ class MySprite:
 
         if KEYS_PRESSED[pygame.K_a]:
             self.__X -= self.__SPD
-        
-        if KEYS_PRESSED[pygame.K_w]:
-            self.__Y -= self.__SPD
-        
-        if KEYS_PRESSED[pygame.K_s]:
-            self.__Y += self.__SPD
-
+    
         self.__POS = (self.__X, self.__Y)
 
     def checkBoundaries(self, MAX_X, MAX_Y, MIN_X=0, MIN_Y=0):
@@ -140,13 +134,22 @@ class MySprite:
         BRICK_WIDTH = DIMENSION[0] # BRICK WIDTH
         BRICK_HEIGHT = DIMENSION[1] # BRICK HEIGHT
 
+        COLLISION_STATUS = False
+
         if self.__X < BRICK_X + BRICK_WIDTH and self.__X + self.getWidth() > BRICK_X and self.__Y + self.__DIR_Y * self.__SPD < BRICK_Y + BRICK_HEIGHT and self.__Y + self.getHeight() + self.__DIR_Y * self.__SPD > BRICK_Y:
             self.__DIR_Y = self.__DIR_Y * -1
+            COLLISION_STATUS = True
+            
             
 
 
         if self.__Y < BRICK_Y + BRICK_HEIGHT and self.__Y + self.getHeight() > BRICK_Y and self.__X + self.__DIR_X * self.__SPD < BRICK_X + BRICK_WIDTH and self.__X + self.getWidth() + self.__DIR_X * self.__SPD > BRICK_X:
             self.__DIR_X = self.__DIR_X * -1
+            COLLISION_STATUS = True
+        
+        return COLLISION_STATUS
+            
+            
             
 
     
