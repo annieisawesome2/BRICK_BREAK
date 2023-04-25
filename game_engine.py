@@ -100,6 +100,7 @@ class Engine:
             self.__PADDLE.checkBoundaries(self.__WINDOW.getWidth(), self.__WINDOW.getHeight())
 
             self.__BALL.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions())
+
             
             
 

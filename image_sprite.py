@@ -14,7 +14,7 @@ class ImageSprite(MySprite):
         MySprite.__init__(self)
         self.__FILE_LOC = IMAGE_FILE
         self._SURFACE = pygame.image.load(self.__FILE_LOC).convert_alpha()
-        self.__X_FLIP = False
+        
 
     def setScale(self, SCALE_X, SCALE_Y=0):
         """resize the image based on a factor
