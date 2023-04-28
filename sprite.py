@@ -17,6 +17,7 @@ class MySprite:
         self._COLOR = COLOR #white
         self.__DIR_X = 1
         self.__DIR_Y = 1
+        
 
     # -- MODIFIER METHODS -- #
 
