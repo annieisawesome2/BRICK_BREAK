@@ -30,35 +30,6 @@ class ImageSprite(MySprite):
     
 
 
-if __name__ == "__main__":
-    from window import Window
-    pygame.init()
-
-
-    WINDOW = Window("Image sprite test")
-    BUNNY = ImageSprite("images/bunny.png")
-    BUNNY.setScale(0.5)
-    BUNNY.setSpeed(15)
-
-    
-
-    while True:
-        #INPUTS
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
-
-        #PROCESSING
-        PRESSED_KEYS = pygame.key.get_pressed()
-        BUNNY.moveWASD(PRESSED_KEYS)
-   
-
-        #OUTPUTS
-        WINDOW.clearScreen()
-        WINDOW.getSurface().blit(BUNNY.getSurface(), BUNNY.getPOS())
-        WINDOW.updateFrame()
-
 
 
 

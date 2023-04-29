@@ -22,11 +22,10 @@ class MySprite:
     # -- MODIFIER METHODS -- #
 
     #movement methods
-    def marqueeX(self, MAX_WIDTH, MIN_WIDTH=0):
-        self.__X += self.__SPD
-        if self.__X > MAX_WIDTH:
-            self.__X = MIN_WIDTH - self.getWidth()
-        
+    def marqueeY(self, MAX_HEIGHT, MIN_HEIGHT=0):
+        self.__Y += self.__SPD
+        if self.__Y > MAX_HEIGHT:
+            self.setPosition((-1000,-1000))
         self.__POS = (self.__X, self.__Y)
     
     def moveAD(self, KEYS_PRESSED):
@@ -101,6 +100,11 @@ class MySprite:
     
     def setSpeed(self, SPD):
         self.__SPD = SPD
+    
+    def setDimensions(self, TUPLE):
+        self.__WIDTH = TUPLE[0]
+        self.__HEIGT = TUPLE[1]
+        self._DIM = (self.__WIDTH, self.__HEIGHT)
 
     
     # -- ACCESSOR METHODS -- #
