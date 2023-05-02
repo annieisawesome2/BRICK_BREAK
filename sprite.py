@@ -17,7 +17,11 @@ class MySprite:
         self._COLOR = COLOR #white
         self.__DIR_X = 1
         self.__DIR_Y = 1
+        self.LOSE = False
         
+
+
+
 
     # -- MODIFIER METHODS -- #
 
@@ -73,7 +77,8 @@ class MySprite:
         self.POS = (self.__X, self.__Y)
 
         if self.__Y > SCREEN_HEIGHT_MAX - self.getHeight():
-            self.__DIR_Y = -1 #reverse
+            self.__POS = ((-1000, -1000)) #reverse
+            self.LOSE = True
             
 
         elif self.__Y < SCREEN_HEIGHT_MIN:
@@ -84,11 +89,11 @@ class MySprite:
     #property methods
     def setWidth(self, WIDTH):
         self.__WIDTH = WIDTH
-        self.__DIM = (self.__WIDTH, self.__HEIGHT)
+        self._DIM = (self.__WIDTH, self.__HEIGHT)
     
     def setHeight(self, HEIGHT):
         self.__HEIGHT = HEIGHT
-        self.__DIM = (self.__WIDTH, self.__HEIGHT)
+        self._DIM = (self.__WIDTH, self.__HEIGHT)
 
     def setPosition(self, TUPLE):
         self.__X = TUPLE[0]
@@ -103,7 +108,7 @@ class MySprite:
     
     def setDimensions(self, TUPLE):
         self.__WIDTH = TUPLE[0]
-        self.__HEIGT = TUPLE[1]
+        self.__HEIGHT = TUPLE[1]
         self._DIM = (self.__WIDTH, self.__HEIGHT)
 
     
@@ -122,6 +127,9 @@ class MySprite:
     
     def getSurface(self):
         return self._SURFACE
+    
+    def getColor(self):
+        return self._COLOR
 
     def isSpriteColliding(self, POSITION, DIMENSION):
         """check if a sprite is colliding with the current sprite
@@ -144,18 +152,12 @@ class MySprite:
         if self.__X < BRICK_X + BRICK_WIDTH and self.__X + self.getWidth() > BRICK_X and self.__Y + self.__DIR_Y * self.__SPD < BRICK_Y + BRICK_HEIGHT and self.__Y + self.getHeight() + self.__DIR_Y * self.__SPD > BRICK_Y:
             self.__DIR_Y = self.__DIR_Y * -1
             COLLISION_STATUS = True
-            
-            
-
 
         if self.__Y < BRICK_Y + BRICK_HEIGHT and self.__Y + self.getHeight() > BRICK_Y and self.__X + self.__DIR_X * self.__SPD < BRICK_X + BRICK_WIDTH and self.__X + self.getWidth() + self.__DIR_X * self.__SPD > BRICK_X:
             self.__DIR_X = self.__DIR_X * -1
             COLLISION_STATUS = True
         
         return COLLISION_STATUS
-            
-            
-            
 
     
 

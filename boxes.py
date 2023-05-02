@@ -9,15 +9,28 @@ class Box(MySprite):
         self._SURFACE = pygame.Surface(self._DIM, pygame.SRCALPHA, 32) ## rerender the surface
         self._SURFACE.fill(self._COLOR)
         self.POWER = False
-    
-    def addPower(self):
-        self.POWER = True
+        self.__WIDTH = WIDTH
+        self.__HEIGHT = HEIGHT
+        self.HEALTH = 0
 
-    
+    def setHealth(self):
+        self.HEALTH -= 1
+        
+
     def setColor(self, TUPLE):
         #polymorphs the setColor class from MySprite
         MySprite.setColor(self, TUPLE)
         self._SURFACE.fill(self._COLOR)
+
+    def setWidth(self, WIDTH):
+        self.__WIDTH = WIDTH
+        self._DIM = (self.__WIDTH, self.__HEIGHT)
+    
+    def setHeight(self, HEIGHT):
+        self.__HEIGHT = HEIGHT
+        self._DIM = (self.__WIDTH, self.__HEIGHT)
+
+
 
 if __name__ == "__main__":
     pygame.init()
