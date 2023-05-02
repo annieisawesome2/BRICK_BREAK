@@ -12,14 +12,14 @@ class Engine:
         self.__TITLE = Text("Brick Break")
         self.__TITLE.setPosition((self.__WINDOW.getWidth()//2 - self.__TITLE.getWidth()//2, 0))
         self.__BALL = Box(15, 15)
-        self.__BALL.setSpeed(10)
+        self.__BALL.setSpeed(0)
         self.__BALL.setPosition((self.__WINDOW.getWidth()//2 - self.__BALL.getWidth()//2, 650))
 
         
         self.__PADDLE = Box(10,80)
 
 
-        self.__PADDLE.setSpeed(15)
+        self.__PADDLE.setSpeed(0)
         self.__PADDLE.setPosition((self.__WINDOW.getWidth()//2 - self.__PADDLE.getWidth()//2, 710))
         self.__BG_IMAGE = ImageSprite("images/background.png")
         self.__BG_IMAGE.setScale(1)
@@ -31,6 +31,15 @@ class Engine:
         self.__SCORE_VALUE = 0
         self.__SCORE_TEXT = Text(f"SCORE: {self.__SCORE_VALUE}")
         self.__SCORE_TEXT.setPosition((0, 0))
+
+        self.__STAR_SCORE_VALUE = 0
+        self.__STAR_SCORE = Text(f"STAR SCORE: {self.__STAR_SCORE_VALUE}")
+        self.__STAR_SCORE.setColor((255, 255, 0))
+        self.__STAR_SCORE.setPosition((160, 0))
+
+
+
+
         self.__WINNING_TEXT = Text("You Win!")
         self.__WINNING_TEXT.setFontSize(196)
         self.__WINNING_TEXT.setPosition(
@@ -49,6 +58,17 @@ class Engine:
                 self.__WINDOW.getHeight()
             )
         )
+
+        self.__START_TEXT = Text("Press SPACE to Start. Press A and D for paddle!")
+        self.__START_TEXT.setColor((255, 255, 255))
+        self.__START_TEXT.setFontSize(50)
+        self.__START_TEXT.setPosition(
+            (
+                150,
+                500
+            )
+        )
+
         self.__PLAY_AGAIN = Text("press SPACE to play again")
         self.__PLAY_AGAIN.setFontSize(50)
         self.__PLAY_AGAIN.setPosition(
@@ -122,7 +142,7 @@ class Engine:
             self.__LEVEL_1_BRICKS.append(bricks)
     
 
-        self.__5_BRICKS = random.sample(self.__LEVEL_1_BRICKS, 5)
+        self.__5_BRICKS = random.sample(self.__LEVEL_1_BRICKS, 10)
 
         self.__RAINBOW = ImageSprite("images/rainbow.png")
         self.__RAINBOW.setScale(0.03)
@@ -159,20 +179,55 @@ class Engine:
         self.__star_5.setSpeed(6)
         self.__FALL_5 = False
 
-        
+        self.__star_6 = ImageSprite("images/star.png")
+        self.__star_6.setScale(0.1)
+        self.__POWERED_BRICK_6 = self.__5_BRICKS[5]
+        self.__star_6.setPosition(self.__POWERED_BRICK_6.getPOS())
+        self.__star_6.setSpeed(6)
+        self.__FALL_6 = False
+
+        self.__star_7 = ImageSprite("images/star.png")
+        self.__star_7.setScale(0.1)
+        self.__POWERED_BRICK_7 = self.__5_BRICKS[6]
+        self.__star_7.setPosition(self.__POWERED_BRICK_7.getPOS())
+        self.__star_7.setSpeed(6)
+        self.__FALL_7 = False
+
+        self.__star_8 = ImageSprite("images/star.png")
+        self.__star_8.setScale(0.1)
+        self.__POWERED_BRICK_8 = self.__5_BRICKS[7]
+        self.__star_8.setPosition(self.__POWERED_BRICK_8.getPOS())
+        self.__star_8.setSpeed(6)
+        self.__FALL_8 = False
+
+        self.__star_9 = ImageSprite("images/star.png")
+        self.__star_9.setScale(0.1)
+        self.__POWERED_BRICK_9 = self.__5_BRICKS[8]
+        self.__star_9.setPosition(self.__POWERED_BRICK_9.getPOS())
+        self.__star_9.setSpeed(6)
+        self.__FALL_9 = False
+
+        self.__star_10 = ImageSprite("images/star.png")
+        self.__star_10.setScale(0.1)
+        self.__POWERED_BRICK_10 = self.__5_BRICKS[9]
+        self.__star_10.setPosition(self.__POWERED_BRICK_10.getPOS())
+        self.__star_10.setSpeed(6)
+        self.__FALL_10 = False
+
+    
     def reset(self):
         self.__WINDOW = Window("Brick Break")
         self.__TITLE = Text("Brick Break")
         self.__TITLE.setPosition((self.__WINDOW.getWidth()//2 - self.__TITLE.getWidth()//2, 0))
         self.__BALL = Box(15, 15)
-        self.__BALL.setSpeed(10)
+        self.__BALL.setSpeed(0)
         self.__BALL.setPosition((self.__WINDOW.getWidth()//2 - self.__BALL.getWidth()//2, 650))
 
         
         self.__PADDLE = Box(10,80)
 
 
-        self.__PADDLE.setSpeed(15)
+        self.__PADDLE.setSpeed(0)
         self.__PADDLE.setPosition((self.__WINDOW.getWidth()//2 - self.__PADDLE.getWidth()//2, 710))
         self.__BG_IMAGE = ImageSprite("images/background.png")
         self.__BG_IMAGE.setScale(1)
@@ -184,6 +239,26 @@ class Engine:
         self.__SCORE_VALUE = 0
         self.__SCORE_TEXT = Text(f"SCORE: {self.__SCORE_VALUE}")
         self.__SCORE_TEXT.setPosition((0, 0))
+
+        self.__STAR_SCORE_VALUE = 0
+        self.__STAR_SCORE = Text(f"STAR SCORE: {self.__STAR_SCORE_VALUE}")
+        self.__STAR_SCORE.setColor((255, 255, 0))
+        self.__STAR_SCORE.setPosition((160, 0))
+
+        self.__START_TEXT = Text("Press SPACE to Start. Press A and D for paddle!")
+        self.__START_TEXT.setColor((255, 255, 255))
+        self.__START_TEXT.setFontSize(50)
+        self.__START_TEXT.setPosition(
+            (
+                150,
+                500
+            )
+        )
+
+
+
+
+
         self.__WINNING_TEXT = Text("You Win!")
         self.__WINNING_TEXT.setFontSize(196)
         self.__WINNING_TEXT.setPosition(
@@ -202,6 +277,7 @@ class Engine:
                 self.__WINDOW.getHeight()
             )
         )
+
         self.__PLAY_AGAIN = Text("press SPACE to play again")
         self.__PLAY_AGAIN.setFontSize(50)
         self.__PLAY_AGAIN.setPosition(
@@ -275,7 +351,7 @@ class Engine:
             self.__LEVEL_1_BRICKS.append(bricks)
     
 
-        self.__5_BRICKS = random.sample(self.__LEVEL_1_BRICKS, 5)
+        self.__5_BRICKS = random.sample(self.__LEVEL_1_BRICKS, 10)
 
         self.__RAINBOW = ImageSprite("images/rainbow.png")
         self.__RAINBOW.setScale(0.03)
@@ -311,6 +387,42 @@ class Engine:
         self.__star_5.setPosition(self.__POWERED_BRICK_5.getPOS())
         self.__star_5.setSpeed(6)
         self.__FALL_5 = False
+
+        self.__star_6 = ImageSprite("images/star.png")
+        self.__star_6.setScale(0.1)
+        self.__POWERED_BRICK_6 = self.__5_BRICKS[5]
+        self.__star_6.setPosition(self.__POWERED_BRICK_6.getPOS())
+        self.__star_6.setSpeed(6)
+        self.__FALL_6 = False
+
+        self.__star_7 = ImageSprite("images/star.png")
+        self.__star_7.setScale(0.1)
+        self.__POWERED_BRICK_7 = self.__5_BRICKS[6]
+        self.__star_7.setPosition(self.__POWERED_BRICK_7.getPOS())
+        self.__star_7.setSpeed(6)
+        self.__FALL_7 = False
+
+        self.__star_8 = ImageSprite("images/star.png")
+        self.__star_8.setScale(0.1)
+        self.__POWERED_BRICK_8 = self.__5_BRICKS[7]
+        self.__star_8.setPosition(self.__POWERED_BRICK_8.getPOS())
+        self.__star_8.setSpeed(6)
+        self.__FALL_8 = False
+
+        self.__star_9 = ImageSprite("images/star.png")
+        self.__star_9.setScale(0.1)
+        self.__POWERED_BRICK_9 = self.__5_BRICKS[8]
+        self.__star_9.setPosition(self.__POWERED_BRICK_9.getPOS())
+        self.__star_9.setSpeed(6)
+        self.__FALL_9 = False
+
+        self.__star_10 = ImageSprite("images/star.png")
+        self.__star_10.setScale(0.1)
+        self.__POWERED_BRICK_10 = self.__5_BRICKS[9]
+        self.__star_10.setPosition(self.__POWERED_BRICK_10.getPOS())
+        self.__star_10.setSpeed(6)
+        self.__FALL_10 = False
+
         
     def level2(self):
         self.__WINDOW = Window("Brick Break")
@@ -476,7 +588,12 @@ class Engine:
 
             
             if LEVEL == 1:
-               
+                if KEYS_PRESSED[pygame.K_SPACE]:
+                    self.__PADDLE.setSpeed(15)
+                    self.__BALL.setSpeed(8)
+                    self.__START_TEXT.setPosition((-1000, -1000))
+
+                ## Start of testing collisions for random bricks with stars behind them or a rainbow powerup
                 if self.__BALL.isSpriteColliding(self.__POWERED_BRICK_1.getPOS(), self.__POWERED_BRICK_1.getDimensions()):
                     self.__POWERED_BRICK_1.setPosition((-10000, -10000))
                     self.__SCORE_VALUE += 10
@@ -493,7 +610,6 @@ class Engine:
                     self.__PADDLE.setSpeed(15)          
                     self.__RAINBOW.setPosition((-1000,-1000))
                 
- 
                 if self.__BALL.isSpriteColliding(self.__POWERED_BRICK_2.getPOS(), self.__POWERED_BRICK_2.getDimensions()):
                     self.__POWERED_BRICK_2.setPosition((-10000, -10000))
                     self.__SCORE_VALUE += 10
@@ -503,9 +619,13 @@ class Engine:
                 if self.__FALL_2:
                     self.__star_2.marqueeY(self.__WINDOW.getHeight())
                 if self.__star_2.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()): 
+                    self.__STAR_SCORE_VALUE += 1
+                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE.setPosition((160,0))
+                    self.__STAR_SCORE.setColor((255, 255, 0))
                     self.__star_2.setPosition((-1000,-1000))
+                    
 
-              
                 if self.__BALL.isSpriteColliding(self.__POWERED_BRICK_3.getPOS(), self.__POWERED_BRICK_3.getDimensions()):
                     self.__POWERED_BRICK_3.setPosition((-10000, -10000))
                     self.__SCORE_VALUE += 10
@@ -515,10 +635,13 @@ class Engine:
 
                 if self.__FALL_3:
                     self.__star_3.marqueeY(self.__WINDOW.getHeight())
-                if self.__star_3.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):                   
+                if self.__star_3.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()): 
+                    self.__STAR_SCORE_VALUE += 1
+                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE.setPosition((160,0))  
+                    self.__STAR_SCORE.setColor((255, 255, 0))         
                     self.__star_3.setPosition((-1000,-1000))
-
-
+                    
                 if self.__BALL.isSpriteColliding(self.__POWERED_BRICK_4.getPOS(), self.__POWERED_BRICK_4.getDimensions()):
                     self.__POWERED_BRICK_4.setPosition((-10000, -10000))
                     self.__SCORE_VALUE += 10
@@ -528,9 +651,12 @@ class Engine:
                 if self.__FALL_4:
                     self.__star_4.marqueeY(self.__WINDOW.getHeight())
                 if self.__star_4.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):
+                    self.__STAR_SCORE_VALUE += 1
+                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE.setPosition((160,0))
+                    self.__STAR_SCORE.setColor((255, 255, 0))
                     self.__star_4.setPosition((-1000,-1000))
-
-               
+                    
                 if self.__BALL.isSpriteColliding(self.__POWERED_BRICK_5.getPOS(), self.__POWERED_BRICK_5.getDimensions()):
                     self.__POWERED_BRICK_5.setPosition((-10000, -10000))
                     self.__SCORE_VALUE += 10
@@ -540,8 +666,88 @@ class Engine:
                 if self.__FALL_5:
                     self.__star_5.marqueeY(self.__WINDOW.getHeight())
                 if self.__star_5.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):
+                    self.__STAR_SCORE_VALUE += 1
+                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE.setPosition((160,0))
+                    self.__STAR_SCORE.setColor((255, 255, 0))
                     self.__star_5.setPosition((-1000,-1000))
                 
+                if self.__BALL.isSpriteColliding(self.__POWERED_BRICK_6.getPOS(), self.__POWERED_BRICK_6.getDimensions()):
+                    self.__POWERED_BRICK_6.setPosition((-10000, -10000))
+                    self.__SCORE_VALUE += 10
+                    self.__SCORE_TEXT = Text(f"SCORE: {self.__SCORE_VALUE}")
+                    self.__SCORE_TEXT.setPosition((0,0))
+                    self.__FALL_6 = True
+                if self.__FALL_6:
+                    self.__star_6.marqueeY(self.__WINDOW.getHeight())
+                if self.__star_6.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):
+                    self.__STAR_SCORE_VALUE += 1
+                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE.setPosition((160,0))
+                    self.__STAR_SCORE.setColor((255, 255, 0))
+                    self.__star_6.setPosition((-1000,-1000))
+                
+                if self.__BALL.isSpriteColliding(self.__POWERED_BRICK_7.getPOS(), self.__POWERED_BRICK_7.getDimensions()):
+                    self.__POWERED_BRICK_7.setPosition((-10000, -10000))
+                    self.__SCORE_VALUE += 10
+                    self.__SCORE_TEXT = Text(f"SCORE: {self.__SCORE_VALUE}")
+                    self.__SCORE_TEXT.setPosition((0,0))
+                    self.__FALL_7 = True
+                if self.__FALL_7:
+                    self.__star_7.marqueeY(self.__WINDOW.getHeight())
+                if self.__star_7.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):
+                    self.__STAR_SCORE_VALUE += 1
+                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE.setPosition((160,0))
+                    self.__STAR_SCORE.setColor((255, 255, 0))
+                    self.__star_7.setPosition((-1000,-1000))
+                
+                if self.__BALL.isSpriteColliding(self.__POWERED_BRICK_8.getPOS(), self.__POWERED_BRICK_8.getDimensions()):
+                    self.__POWERED_BRICK_8.setPosition((-10000, -10000))
+                    self.__SCORE_VALUE += 10
+                    self.__SCORE_TEXT = Text(f"SCORE: {self.__SCORE_VALUE}")
+                    self.__SCORE_TEXT.setPosition((0,0))
+                    self.__FALL_8 = True
+                if self.__FALL_8:
+                    self.__star_8.marqueeY(self.__WINDOW.getHeight())
+                if self.__star_8.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):
+                    self.__STAR_SCORE_VALUE += 1
+                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE.setPosition((160,0))
+                    self.__STAR_SCORE.setColor((255, 255, 0))
+                    self.__star_8.setPosition((-1000,-1000))
+                
+                if self.__BALL.isSpriteColliding(self.__POWERED_BRICK_9.getPOS(), self.__POWERED_BRICK_9.getDimensions()):
+                    self.__POWERED_BRICK_9.setPosition((-10000, -10000))
+                    self.__SCORE_VALUE += 10
+                    self.__SCORE_TEXT = Text(f"SCORE: {self.__SCORE_VALUE}")
+                    self.__SCORE_TEXT.setPosition((0,0))
+                    self.__FALL_9 = True
+                if self.__FALL_9:
+                    self.__star_9.marqueeY(self.__WINDOW.getHeight())
+                if self.__star_9.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):
+                    self.__STAR_SCORE_VALUE += 1
+                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE.setPosition((160,0))
+                    self.__STAR_SCORE.setColor((255, 255, 0))
+                    self.__star_9.setPosition((-1000,-1000))
+                
+                if self.__BALL.isSpriteColliding(self.__POWERED_BRICK_10.getPOS(), self.__POWERED_BRICK_10.getDimensions()):
+                    self.__POWERED_BRICK_10.setPosition((-10000, -10000))
+                    self.__SCORE_VALUE += 10
+                    self.__SCORE_TEXT = Text(f"SCORE: {self.__SCORE_VALUE}")
+                    self.__SCORE_TEXT.setPosition((0,0))
+                    self.__FALL_10 = True
+                if self.__FALL_10:
+                    self.__star_10.marqueeY(self.__WINDOW.getHeight())
+                if self.__star_10.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):
+                    self.__STAR_SCORE_VALUE += 1
+                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE.setPosition((160,0))
+                    self.__STAR_SCORE.setColor((255, 255, 0))
+                    self.__star_10.setPosition((-1000,-1000))
+                 
+        
                     
                 
                 ## brick collisions and testing for finished broken bricks
@@ -552,8 +758,8 @@ class Engine:
                             self.__SCORE_TEXT = Text(f"SCORE: {self.__SCORE_VALUE}")
                             self.__SCORE_TEXT.setPosition((0,0))
                     
-
-                if self.__BALL.LOSE:
+                ##Losing screem 
+                if self.__BALL.LOSE: 
                     self.__LOSING_TEXT.setPosition(
                             (
                                 self.__WINDOW.getWidth()//2 - self.__WINNING_TEXT.getWidth()//2 + 50,
@@ -570,12 +776,17 @@ class Engine:
                     
                     for brick in self.__LEVEL_1_BRICKS: 
                         brick.setPosition((-1000, -1000)) 
-
+                    ##taking everything off screen
                     self.__RAINBOW.setPosition((-1000, -1000))
                     self.__star_2.setPosition((-1000, -1000))  
                     self.__star_3.setPosition((-1000, -1000))  
                     self.__star_4.setPosition((-1000, -1000))  
-                    self.__star_5.setPosition((-1000, -1000))   
+                    self.__star_5.setPosition((-1000, -1000))  
+                    self.__star_6.setPosition((-1000, -1000))  
+                    self.__star_7.setPosition((-1000, -1000))  
+                    self.__star_8.setPosition((-1000, -1000))  
+                    self.__star_9.setPosition((-1000, -1000)) 
+                    self.__star_10.setPosition((-1000, -1000)) 
                     self.__PADDLE.setPosition((-1000, -1000))  
 
 
@@ -604,11 +815,19 @@ class Engine:
                             self.__NEXT_LEVEL.setPosition((-1000, -1000))
                             self.level2()
                             LEVEL = 2
+                            self.__STAR_SCORE.setPosition((-1000, -1000))
                             continue
 
                 # -- OUTPUTS -- #
                 self.__WINDOW.clearScreen()
+                
+
+
                 self.__WINDOW.getSurface().blit(self.__BG_IMAGE.getSurface(), self.__BG_IMAGE.getPOS())
+                
+                
+
+                self.__WINDOW.getSurface().blit(self.__START_TEXT.getSurface(), self.__START_TEXT.getPOS())
                 for brick in self.__BRICKS_1_1:
                     self.__WINDOW.getSurface().blit(brick.getSurface(), brick.getPOS())
                 for brick in self.__BRICKS_1_2:
@@ -618,12 +837,19 @@ class Engine:
                 for brick in self.__BRICKS_1_4:
                     self.__WINDOW.getSurface().blit(brick.getSurface(), brick.getPOS())
 
-      
                 self.__WINDOW.getSurface().blit(self.__RAINBOW.getSurface(), self.__RAINBOW.getPOS())
                 self.__WINDOW.getSurface().blit(self.__star_2.getSurface(), self.__star_2.getPOS())
                 self.__WINDOW.getSurface().blit(self.__star_3.getSurface(), self.__star_3.getPOS())
                 self.__WINDOW.getSurface().blit(self.__star_4.getSurface(), self.__star_4.getPOS())
                 self.__WINDOW.getSurface().blit(self.__star_5.getSurface(), self.__star_5.getPOS())
+                self.__WINDOW.getSurface().blit(self.__star_6.getSurface(), self.__star_6.getPOS())
+                self.__WINDOW.getSurface().blit(self.__star_7.getSurface(), self.__star_7.getPOS())
+                self.__WINDOW.getSurface().blit(self.__star_8.getSurface(), self.__star_8.getPOS())
+                self.__WINDOW.getSurface().blit(self.__star_9.getSurface(), self.__star_9.getPOS())
+                self.__WINDOW.getSurface().blit(self.__star_10.getSurface(), self.__star_10.getPOS())
+
+                
+                
               
                 
         
@@ -757,17 +983,14 @@ class Engine:
                 for brick in self.__BRICKS_2_6:
                     self.__WINDOW.getSurface().blit(brick.getSurface(), brick.getPOS())
             
-            
-
+        
         
             self.__WINDOW.getSurface().blit(self.__BALL.getSurface(), self.__BALL.getPOS())
             self.__WINDOW.getSurface().blit(self.__PADDLE.getSurface(), self.__PADDLE.getPOS())
             self.__WINDOW.getSurface().blit(self.__TITLE.getSurface(), self.__TITLE.getPOS())
 
-
-            
-
             self.__WINDOW.getSurface().blit(self.__SCORE_TEXT.getSurface(), self.__SCORE_TEXT.getPOS())
+            self.__WINDOW.getSurface().blit(self.__STAR_SCORE.getSurface(), self.__STAR_SCORE.getPOS())
             self.__WINDOW.getSurface().blit(self.__WINNING_TEXT.getSurface(), self.__WINNING_TEXT.getPOS())
             self.__WINDOW.getSurface().blit(self.__LOSING_TEXT.getSurface(), self.__LOSING_TEXT.getPOS())
             self.__WINDOW.getSurface().blit(self.__PLAY_AGAIN.getSurface(), self.__PLAY_AGAIN.getPOS())
