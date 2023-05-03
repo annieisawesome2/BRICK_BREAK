@@ -620,7 +620,7 @@ class Engine:
                     self.__star_2.marqueeY(self.__WINDOW.getHeight())
                 if self.__star_2.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()): 
                     self.__STAR_SCORE_VALUE += 1
-                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE = Text(f"STAR SCORE: {self.__STAR_SCORE_VALUE}")
                     self.__STAR_SCORE.setPosition((160,0))
                     self.__STAR_SCORE.setColor((255, 255, 0))
                     self.__star_2.setPosition((-1000,-1000))
@@ -637,7 +637,7 @@ class Engine:
                     self.__star_3.marqueeY(self.__WINDOW.getHeight())
                 if self.__star_3.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()): 
                     self.__STAR_SCORE_VALUE += 1
-                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE = Text(f"STAR SCORE: {self.__STAR_SCORE_VALUE}")
                     self.__STAR_SCORE.setPosition((160,0))  
                     self.__STAR_SCORE.setColor((255, 255, 0))         
                     self.__star_3.setPosition((-1000,-1000))
@@ -652,7 +652,7 @@ class Engine:
                     self.__star_4.marqueeY(self.__WINDOW.getHeight())
                 if self.__star_4.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):
                     self.__STAR_SCORE_VALUE += 1
-                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE = Text(f"STAR SCORE: {self.__STAR_SCORE_VALUE}")
                     self.__STAR_SCORE.setPosition((160,0))
                     self.__STAR_SCORE.setColor((255, 255, 0))
                     self.__star_4.setPosition((-1000,-1000))
@@ -667,7 +667,7 @@ class Engine:
                     self.__star_5.marqueeY(self.__WINDOW.getHeight())
                 if self.__star_5.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):
                     self.__STAR_SCORE_VALUE += 1
-                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE = Text(f"STAR SCORE: {self.__STAR_SCORE_VALUE}")
                     self.__STAR_SCORE.setPosition((160,0))
                     self.__STAR_SCORE.setColor((255, 255, 0))
                     self.__star_5.setPosition((-1000,-1000))
@@ -682,7 +682,7 @@ class Engine:
                     self.__star_6.marqueeY(self.__WINDOW.getHeight())
                 if self.__star_6.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):
                     self.__STAR_SCORE_VALUE += 1
-                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE = Text(f"STAR SCORE: {self.__STAR_SCORE_VALUE}")
                     self.__STAR_SCORE.setPosition((160,0))
                     self.__STAR_SCORE.setColor((255, 255, 0))
                     self.__star_6.setPosition((-1000,-1000))
@@ -697,7 +697,7 @@ class Engine:
                     self.__star_7.marqueeY(self.__WINDOW.getHeight())
                 if self.__star_7.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):
                     self.__STAR_SCORE_VALUE += 1
-                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE = Text(f"STAR SCORE: {self.__STAR_SCORE_VALUE}")
                     self.__STAR_SCORE.setPosition((160,0))
                     self.__STAR_SCORE.setColor((255, 255, 0))
                     self.__star_7.setPosition((-1000,-1000))
@@ -712,7 +712,7 @@ class Engine:
                     self.__star_8.marqueeY(self.__WINDOW.getHeight())
                 if self.__star_8.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):
                     self.__STAR_SCORE_VALUE += 1
-                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE = Text(f"STAR SCORE: {self.__STAR_SCORE_VALUE}")
                     self.__STAR_SCORE.setPosition((160,0))
                     self.__STAR_SCORE.setColor((255, 255, 0))
                     self.__star_8.setPosition((-1000,-1000))
@@ -727,7 +727,7 @@ class Engine:
                     self.__star_9.marqueeY(self.__WINDOW.getHeight())
                 if self.__star_9.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):
                     self.__STAR_SCORE_VALUE += 1
-                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE = Text(f"STAR SCORE: {self.__STAR_SCORE_VALUE}")
                     self.__STAR_SCORE.setPosition((160,0))
                     self.__STAR_SCORE.setColor((255, 255, 0))
                     self.__star_9.setPosition((-1000,-1000))
@@ -742,7 +742,7 @@ class Engine:
                     self.__star_10.marqueeY(self.__WINDOW.getHeight())
                 if self.__star_10.isSpriteColliding(self.__PADDLE.getPOS(), self.__PADDLE.getDimensions()):
                     self.__STAR_SCORE_VALUE += 1
-                    self.__STAR_SCORE = Text(f"SCORE: {self.__STAR_SCORE_VALUE}")
+                    self.__STAR_SCORE = Text(f"STAR SCORE: {self.__STAR_SCORE_VALUE}")
                     self.__STAR_SCORE.setPosition((160,0))
                     self.__STAR_SCORE.setColor((255, 255, 0))
                     self.__star_10.setPosition((-1000,-1000))
