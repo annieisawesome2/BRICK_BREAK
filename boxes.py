@@ -1,22 +1,30 @@
+'''
+Title: Window in Break Break
+Date: April 25, 2023
+Author: Annie Sun
+
+'''
 import pygame
 
 from sprite import MySprite
 from window import Window
 
 class Box(MySprite):
+    ##Box object inheriting from MySprite
     def __init__(self, WIDTH=1, HEIGHT=1):
         MySprite.__init__(self, WIDTH, HEIGHT)
         self._SURFACE = pygame.Surface(self._DIM, pygame.SRCALPHA, 32) ## rerender the surface
         self._SURFACE.fill(self._COLOR)
         self.POWER = False
+
+        ## ENCAPSULATION (protecting and hiding data through an interface)
         self.__WIDTH = WIDTH
         self.__HEIGHT = HEIGHT
         self.HEALTH = 0
 
     def setHealth(self):
         self.HEALTH -= 1
-        
-
+    
     def setColor(self, TUPLE):
         #polymorphs the setColor class from MySprite
         MySprite.setColor(self, TUPLE)

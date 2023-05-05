@@ -1,12 +1,19 @@
+'''
+Title: Window in Break Break
+Date: April 27, 2023
+Author: Annie Sun
+
+'''
+
 import pygame
 from text import Text
-from sprite import MySprite
 from window import Window
 from boxes import Box
 from image_sprite import ImageSprite
 import random
 
 class Engine:
+    ## COMPOSITION ("has a" relationship) -- Creating a complex game engine class by collecting smaller objects together.
     def __init__(self):
         self.__WINDOW = Window("Brick Break")
         self.__TITLE = Text("Brick Break")
@@ -17,8 +24,6 @@ class Engine:
 
         
         self.__PADDLE = Box(10,80)
-
-
         self.__PADDLE.setSpeed(0)
         self.__PADDLE.setPosition((self.__WINDOW.getWidth()//2 - self.__PADDLE.getWidth()//2, 710))
         self.__BG_IMAGE = ImageSprite("images/background.png")
@@ -128,7 +133,7 @@ class Engine:
             brick.setPosition((WIDTH, 280))
             WIDTH += 90
 
-        self.__LEVEL_1_BRICKS = [] #aggregation (groupng objects)/aggregation of bricks
+        self.__LEVEL_1_BRICKS = [] #AGGREGATION (grouping objects)/aggregation of bricks
         for bricks in self.__BRICKS_1_1:
             self.__LEVEL_1_BRICKS.append(bricks)
         
@@ -140,8 +145,9 @@ class Engine:
         
         for bricks in self.__BRICKS_1_4:
             self.__LEVEL_1_BRICKS.append(bricks)
-    
 
+
+        #list of random bricks
         self.__5_BRICKS = random.sample(self.__LEVEL_1_BRICKS, 10)
 
         self.__RAINBOW = ImageSprite("images/rainbow.png")
@@ -855,9 +861,10 @@ class Engine:
         
             
             elif LEVEL == 2:
-                ## brick collisions and testing for finished broken bricks
+                ## brick collisions for colored bricks and testing for finished broken bricks
         
                 for brick in self.__RED_BRICKS:
+                    
                     if self.__BALL.isSpriteColliding(brick.getPOS(), brick.getDimensions()):
                         self.__SCORE_VALUE += 10
                         self.__SCORE_TEXT = Text(f"SCORE: {self.__SCORE_VALUE}")
@@ -889,8 +896,6 @@ class Engine:
                         else:
                             brick.setPosition((-1000, -1000))
                            
-
-                    
                     
                 
                 for brick in self.__YELLOW_BRICKS:
@@ -899,8 +904,6 @@ class Engine:
                         self.__SCORE_VALUE += 10
                         self.__SCORE_TEXT = Text(f"SCORE: {self.__SCORE_VALUE}")
                         self.__SCORE_TEXT.setPosition((0,0))
-
-
 
 
                 if self.__BALL.LOSE:

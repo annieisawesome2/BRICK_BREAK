@@ -1,27 +1,7 @@
 {
     "folders": [
         {
-            "name": "BRICK_BREAK",
             "path": "."
-        },
-        {
-            "name": "CSE3130-Lessons",
-            "path": "../CSE3130-Lessons"
-        },
-        {
-            "name": "d_inheritance",
-            "path": "../CSE3130-Lessons/d_inheritance"
-        },
-        {
-            "name": "e_bunny",
-            "path": "../CSE3130-Lessons/e_bunny"
-        },
-        {
-            "name": "crash-course-python",
-            "path": "../crash-course-python"
-        },
-        {
-            "path": "../OOP_2"
         }
     ]
 }

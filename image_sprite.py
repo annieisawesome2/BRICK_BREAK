@@ -1,7 +1,7 @@
 '''
 title: Image Sprite
 author: Annie Sun
-date: 2023-04-19
+date: April 26, 2023
 '''
 
 import pygame
@@ -12,7 +12,7 @@ class ImageSprite(MySprite):
     """
     def __init__(self, IMAGE_FILE):
         MySprite.__init__(self)
-        self.__FILE_LOC = IMAGE_FILE
+        self.__FILE_LOC = IMAGE_FILE  ## ENCAPSULATION (protecting and hiding data through an interface)
         self._SURFACE = pygame.image.load(self.__FILE_LOC).convert_alpha()
         
 

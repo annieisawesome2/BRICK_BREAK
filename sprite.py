@@ -1,4 +1,11 @@
 
+'''
+Title: Parent Sprite
+Date: April 25, 2023
+Author: Annie Sun
+
+'''
+
 import pygame
 import random
 
@@ -6,7 +13,8 @@ class MySprite:
     """many of the common attributes and methods for sprites in pygame
     """
     def __init__(self, HEIGHT=0, WIDTH=0, X=0, Y=0, SPD=0, COLOR = (255, 255, 255)):
-        self.__HEIGHT = HEIGHT
+        ## ABSTRACTION (setting appropiate level of complexity and detail to what game requires sprite to be)
+        self.__HEIGHT = HEIGHT ## ENCAPSULATION (protecting and hiding data through an interface)
         self.__WIDTH = WIDTH
         self._DIM = (self.__WIDTH, self.__HEIGHT)
         self._SURFACE = pygame.Surface
@@ -20,12 +28,37 @@ class MySprite:
         self.LOSE = False
         
 
-
-
-
     # -- MODIFIER METHODS -- #
 
     #movement methods
+    def isSpriteColliding(self, POSITION, DIMENSION):
+        """check if a sprite is colliding with the current sprite
+
+        Args:
+            POSITION (tuple): 
+            DIMENSION (tuple): 
+        
+        return: bool
+        """
+        #if BALL.isSpriteColliding(BRICK.getPOS(), BRICK.getDimensions()):
+        BRICK_X = POSITION[0] #BRICK X
+        BRICK_Y = POSITION[1] #BRICK Y
+
+        BRICK_WIDTH = DIMENSION[0] # BRICK WIDTH
+        BRICK_HEIGHT = DIMENSION[1] # BRICK HEIGHT
+
+        COLLISION_STATUS = False
+
+        if self.__X < BRICK_X + BRICK_WIDTH and self.__X + self.getWidth() > BRICK_X and self.__Y + self.__DIR_Y * self.__SPD < BRICK_Y + BRICK_HEIGHT and self.__Y + self.getHeight() + self.__DIR_Y * self.__SPD > BRICK_Y:
+            self.__DIR_Y = self.__DIR_Y * -1
+            COLLISION_STATUS = True
+
+        if self.__Y < BRICK_Y + BRICK_HEIGHT and self.__Y + self.getHeight() > BRICK_Y and self.__X + self.__DIR_X * self.__SPD < BRICK_X + BRICK_WIDTH and self.__X + self.getWidth() + self.__DIR_X * self.__SPD > BRICK_X:
+            self.__DIR_X = self.__DIR_X * -1
+            COLLISION_STATUS = True
+        
+        return COLLISION_STATUS
+        
     def marqueeY(self, MAX_HEIGHT, MIN_HEIGHT=0):
         self.__Y += self.__SPD
         if self.__Y > MAX_HEIGHT:
@@ -131,33 +164,7 @@ class MySprite:
     def getColor(self):
         return self._COLOR
 
-    def isSpriteColliding(self, POSITION, DIMENSION):
-        """check if a sprite is colliding with the current sprite
-
-        Args:
-            POSITION (tuple): 
-            DIMENSION (tuple): 
-        
-        return: bool
-        """
-        #if BALL.isSpriteColliding(BRICK.getPOS(), BRICK.getDimensions()):
-        BRICK_X = POSITION[0] #BRICK X
-        BRICK_Y = POSITION[1] #BRICK Y
-
-        BRICK_WIDTH = DIMENSION[0] # BRICK WIDTH
-        BRICK_HEIGHT = DIMENSION[1] # BRICK HEIGHT
-
-        COLLISION_STATUS = False
-
-        if self.__X < BRICK_X + BRICK_WIDTH and self.__X + self.getWidth() > BRICK_X and self.__Y + self.__DIR_Y * self.__SPD < BRICK_Y + BRICK_HEIGHT and self.__Y + self.getHeight() + self.__DIR_Y * self.__SPD > BRICK_Y:
-            self.__DIR_Y = self.__DIR_Y * -1
-            COLLISION_STATUS = True
-
-        if self.__Y < BRICK_Y + BRICK_HEIGHT and self.__Y + self.getHeight() > BRICK_Y and self.__X + self.__DIR_X * self.__SPD < BRICK_X + BRICK_WIDTH and self.__X + self.getWidth() + self.__DIR_X * self.__SPD > BRICK_X:
-            self.__DIR_X = self.__DIR_X * -1
-            COLLISION_STATUS = True
-        
-        return COLLISION_STATUS
+    
 
     
 

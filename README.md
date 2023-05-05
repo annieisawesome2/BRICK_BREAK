@@ -1,7 +1,12 @@
 # BRICK_BREAK
-
-## How the game works
-
-## Process
+## How To Run the Program
+To play, hit the space button and use keys a and d to move the paddle side to side. The objective in the first level is to break all the bricks with the bouncing ball. The brick will break when the ball hits it! Make sure to catch the ball with your paddle and bounce it back up. If you miss and the ball hits the bottom, you lose and you will need to restart the game. Each time you hit the brick, you will gain 10 points added to your score. Earn 400 points in the first level by breaking all the bricks in order to move to level 2.
 
 ## Extension
+For my extension, I added an extra feature to each level. In level 1, I added 9 stars to 9 random bricks. When you hit a brick with a star, the star will drop and you have the opportunity to collect it with your paddle. If you don't catch it, nothing happens, but catching it will add a point to your star score. Additionally, in level 1 you will find a rainbow assigned to a brick. If you hit a brick with the rainbow, it will fall and be sure to catch it with your paddle! It will make your paddle increase in width making it easier to catch the ball and more stars! In level 2, I added health to my bricks. There will be red, orange, and yellow bricks. Red must be hit 3 times to break, orange must be hit 2 times to break, and yellow must be hit 1 time to break. Once red is hit, it will turn orange to keep track of how many more times it has to be hit to break. Orange will then turn to yellow. 
+
+## Process/Reflection
+Programing the collisions was fairly simple for me, but I had troubles with all the extensions I planned to do. For the stars, it was difficult to randomize stars to be with a certain brick. It was hard to manage which brick then had a star because it changes every time due to stars being placed randomly. In level 2, I found it difficult to manage the if statements for the collisions then assigning health to the bricks. I thought I needed if statements for every collision made for changing the color and health but I ended up realizing I only needed to test the collision once and include health if statements within the collision. This part was extremly frustating and cost me more than 2 day to figure out when I initially thought this would be much simpler than programming the star extension from level 1. My favourite part of the programming process was formatting the bricks and and making the collisions. The collisions worked well and this was the first step to making the entire game work. Overall, I am very happy with how my program turned out and I am glad I followed through with all the extensions I initially planned to do. To be honest, I was extremly tempted to change one extension to something simpler like adding 3 lives for the player, but I didn't want to change my flowchart. 
+
+
+

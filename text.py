@@ -1,13 +1,21 @@
+'''
+Title: Text Objects
+Date: April 25, 2023
+Author: Annie Sun
+
+'''
+
 from sprite import MySprite
 from window import Window
 import pygame
 
 class Text(MySprite):
+    ##Text object inheriting from MySprite
     """concrete text sprite
     """
     def __init__(self, TEXT):
         MySprite.__init__(self)
-        self.__TEXT = TEXT
+        self.__TEXT = TEXT  ## ENCAPSULATION (protecting and hiding data through an interface)
         self.__FONT = pygame.font.SysFont("Ariel", 36)
         self._SURFACE = self.__FONT.render(self.__TEXT, True, self._COLOR)
     

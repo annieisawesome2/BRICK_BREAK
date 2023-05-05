@@ -1,3 +1,10 @@
+'''
+Title: Window in Break Break
+Date: April 24, 2023
+Author: Annie Sun
+
+'''
+
 
 import pygame
 import random
@@ -6,6 +13,7 @@ class Window:
     """Create the window that will load pygame
     """
     def __init__(self, TITLE, WIDTH = 1100, HEIGHT=800, FPS=30, BG_COLOR = (0, 0, 0)):
+        ## ENCAPSULATION (protecting and hiding data through an interface)
         self.__TITLE = TITLE
         self.__FPS = FPS #frames per second the window will refresh
         self.__WIDTH = WIDTH #width of the window
@@ -18,9 +26,6 @@ class Window:
         pygame.display.set_caption(self.__TITLE) 
 
     # -- MODIFIER METHODS -- #
-    def setBGColor(self, COLOR):
-        return self.__BG_COLOR
-
     def updateFrame(self):  
         """updating the window object based on the FPS that we have set
         """
